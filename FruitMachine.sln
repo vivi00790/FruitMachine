@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitMachine", "FruitMachine\FruitMachine.csproj", "{3515AFC2-A08A-4E5D-BDFC-D9FB5E2855ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3515AFC2-A08A-4E5D-BDFC-D9FB5E2855ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3515AFC2-A08A-4E5D-BDFC-D9FB5E2855ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3515AFC2-A08A-4E5D-BDFC-D9FB5E2855ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3515AFC2-A08A-4E5D-BDFC-D9FB5E2855ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2378A2CC-52D4-423F-A3E2-25088F7B7DDF}
+	EndGlobalSection
+EndGlobal
