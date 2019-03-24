@@ -56,6 +56,13 @@ namespace FruitMachineTest
             Assert.AreEqual(20,GetFruitMachineScoreWithFixedReels(0,0,1));
         }
 
+        [TestMethod]
+        public void Two_matching_With_one_wild_should_return_two_times_of_base_score()
+        {
+
+            Assert.AreEqual(18,GetFruitMachineScoreWithFixedReels(1,1,0));
+        }
+
         private int GetFruitMachineScoreWithFixedReels(int reelOneAt, int reelTwoAt, int reelThreeAt)
         {
             return _fruitMachine.Score(_fixedReels, GetReelsStopAt(reelOneAt, reelTwoAt, reelThreeAt));
