@@ -10,8 +10,8 @@ namespace FruitMachineTest
     {
         public int Score(List<List<string>> reels, List<int> reelsStopAt)
         {
-            List<string> reelResult = getReelResult(reels, reelsStopAt);
-            var groupIconAndCount = getGroupIconAndCount(reelResult);
+            List<string> reelResult = GetReelResult(reels, reelsStopAt);
+            var groupIconAndCount = GetGroupIconAndCount(reelResult);
             if (groupIconAndCount.Count==1)
             {
                 return GetBaseScore(reels[0][reelsStopAt[0]]) * 10;
@@ -26,18 +26,12 @@ namespace FruitMachineTest
             return 0;
         }
 
-        private List<string> getReelResult(List<List<string>> reels, List<int> reelsStopAt)
+        private List<string> GetReelResult(List<List<string>> reels, List<int> reelsStopAt)
         {
-            var reelResult = new List<string>();
-            for (int i = 0; i < reels.Count; i++)
-            {
-                reelResult.Add(reels[i][reelsStopAt[i]]);
-            }
-
-            return reelResult;
+            return reels.Select((reel, i) => reel[reelsStopAt[i]]).ToList();
         }
 
-        private List<Tuple<string, int>> getGroupIconAndCount(List<string> reelResult)
+        private List<Tuple<string, int>> GetGroupIconAndCount(List<string> reelResult)
         {
             return reelResult.GroupBy(item => item)
                 .Select(item => new Tuple<string, int>(item.First().ToString(), item.Count())).ToList();
@@ -45,10 +39,10 @@ namespace FruitMachineTest
 
         private int GetBaseScore(string iconName)
         {
-            return iconBaseScore[iconName];
+            return _iconBaseScore[iconName];
         }
 
-        private readonly Dictionary<string, int> iconBaseScore = new Dictionary<string, int>()
+        private readonly Dictionary<string, int> _iconBaseScore = new Dictionary<string, int>()
         {
             { "Wild",10},
             { "Star",9},
