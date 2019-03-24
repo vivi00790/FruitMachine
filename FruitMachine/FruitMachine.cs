@@ -11,14 +11,16 @@ namespace FruitMachineTest
         public int Score(List<List<string>> reels, List<int> reelsStopAt)
         {
             List<string> reelResult = getReelResult(reels, reelsStopAt);
-            if (EqualCounter(reelResult) ==reels.Count)
+            var groupIconAndCount = getGroupIconAndCount(reelResult);
+            if (groupIconAndCount.Count==1)
             {
                 return GetBaseScore(reels[0][reelsStopAt[0]]) * 10;
             }
 
-            if (EqualCounter(reelResult) == 2)
+            if (groupIconAndCount.Count==2)
             {
-                return GetBaseScore(reels[0][reelsStopAt[0]]);
+                
+                return GetBaseScore(groupIconAndCount.First(item => item.Item2==2).Item1);
             }
             return 0;
         }
@@ -34,12 +36,10 @@ namespace FruitMachineTest
             return reelResult;
         }
 
-        private int EqualCounter(List<string> reelResult)
+        private List<Tuple<string, int>> getGroupIconAndCount(List<string> reelResult)
         {
-            var equalCounter = reelResult.GroupBy(item => item)
-                .Where(item => item.Count() > 1)
-                .Select(item => new{iconName = item.First().ToString(), equalTimes = item.Count()});
-            return !equalCounter.Any()?0: equalCounter.First().equalTimes;
+            return reelResult.GroupBy(item => item)
+                .Select(item => new Tuple<string, int>(item.First().ToString(), item.Count())).ToList();
         }
 
         private int GetBaseScore(string iconName)
