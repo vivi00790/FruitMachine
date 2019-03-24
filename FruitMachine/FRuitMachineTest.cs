@@ -37,7 +37,7 @@ namespace FruitMachineTest
         }
 
         [TestMethod]
-        public void all_matching_should_return_ten_times_of_base_score()
+        public void All_matching_should_return_ten_times_of_base_score()
         {
 
             Assert.AreEqual(100,GetFruitMachineScoreWithFixedReels(0,0,0));
