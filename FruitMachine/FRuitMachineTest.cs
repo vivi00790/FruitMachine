@@ -11,7 +11,7 @@ namespace FruitMachineTest
         private static List<List<string>> _fixedReels = new List<List<string>>();
 
         private static List<string> _fixedReel = new List<string>()
-            {"Wild", "Star", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack"};
+            {"Wild", "Star", "Bell", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack"};
 
         private static FruitMachine _fruitMachine;
 
