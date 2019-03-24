@@ -8,20 +8,24 @@ namespace FruitMachineTest
     [TestClass]
     public class FruitMachineTest
     {
-        private static List<List<string>> _fixedReels = new List<List<string>>()
-        {
-            new List<string>(){"Wild", "Star", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack"},
-            new List<string>(){"Wild", "Star", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack"},
-            new List<string>(){"Wild", "Star", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack"},
-        };
+        private static List<List<string>> _fixedReels = new List<List<string>>();
+
+        private static List<string> _fixedReel = new List<string>()
+            {"Wild", "Star", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack"};
 
         private static FruitMachine _fruitMachine;
+
+        private static int _reelNum = 3;
 
         
 
         [TestInitialize]
         public void SetUp()
         {
+            for (int i = 0; i < _reelNum; i++)
+            {
+                _fixedReels.Add(_fixedReel);
+            } 
             _fruitMachine = new FruitMachine();
         }
 
@@ -30,6 +34,13 @@ namespace FruitMachineTest
         {
 
             Assert.AreEqual(0,GetFruitMachineScoreWithFixedReels(0,1,2));
+        }
+
+        [TestMethod]
+        public void all_matching_should_return_ten_times_of_base_score()
+        {
+
+            Assert.AreEqual(100,GetFruitMachineScoreWithFixedReels(0,0,0));
         }
 
         private int GetFruitMachineScoreWithFixedReels(int reelOneAt, int reelTwoAt, int reelThreeAt)
