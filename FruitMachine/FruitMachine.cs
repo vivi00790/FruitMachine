@@ -15,6 +15,11 @@ namespace FruitMachineTest
             {
                 return GetBaseScore(reels[0][reelsStopAt[0]]) * 10;
             }
+
+            if (EqualCounter(reelResult) == 2)
+            {
+                return GetBaseScore(reels[0][reelsStopAt[0]]) * 2;
+            }
             return 0;
         }
 
@@ -29,7 +34,7 @@ namespace FruitMachineTest
             return reelResult;
         }
 
-        private static int EqualCounter(List<string> reelResult)
+        private int EqualCounter(List<string> reelResult)
         {
             var equalCounter = reelResult.GroupBy(item => item)
                 .Where(item => item.Count() > 1)
@@ -42,7 +47,7 @@ namespace FruitMachineTest
             return iconBaseScore[iconName];
         }
 
-        private Dictionary<string, int> iconBaseScore = new Dictionary<string, int>()
+        private readonly Dictionary<string, int> iconBaseScore = new Dictionary<string, int>()
         {
             { "Wild",10},
             { "Star",9},

@@ -8,14 +8,14 @@ namespace FruitMachineTest
     [TestClass]
     public class FruitMachineTest
     {
-        private static List<List<string>> _fixedReels = new List<List<string>>();
+        private List<List<string>> _fixedReels = new List<List<string>>();
 
-        private static List<string> _fixedReel = new List<string>()
+        private readonly List<string> _fixedReel = new List<string>()
             {"Wild", "Star", "Bell", "Shell", "Seven", "Cherry", "Bar", "King", "Queen", "Jack"};
 
-        private static FruitMachine _fruitMachine;
+        private FruitMachine _fruitMachine;
 
-        private static int _reelNum = 3;
+        private readonly int _reelNum = 3;
 
         
 
@@ -27,6 +27,12 @@ namespace FruitMachineTest
                 _fixedReels.Add(_fixedReel);
             } 
             _fruitMachine = new FruitMachine();
+        }
+
+        [TestCleanup]
+        public void TearDown()
+        {
+            _fruitMachine = null;
         }
 
         [TestMethod]
@@ -41,6 +47,13 @@ namespace FruitMachineTest
         {
 
             Assert.AreEqual(100,GetFruitMachineScoreWithFixedReels(0,0,0));
+        }
+
+        [TestMethod]
+        public void Two_matching_should_return_two_times_of_base_score()
+        {
+
+            Assert.AreEqual(20,GetFruitMachineScoreWithFixedReels(0,0,1));
         }
 
         private int GetFruitMachineScoreWithFixedReels(int reelOneAt, int reelTwoAt, int reelThreeAt)
