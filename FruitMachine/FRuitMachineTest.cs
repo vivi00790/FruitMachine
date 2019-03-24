@@ -50,10 +50,10 @@ namespace FruitMachineTest
         }
 
         [TestMethod]
-        public void Two_matching_should_return_two_times_of_base_score()
+        public void Two_matching_should_return_base_score()
         {
 
-            Assert.AreEqual(20,GetFruitMachineScoreWithFixedReels(0,0,1));
+            Assert.AreEqual(10,GetFruitMachineScoreWithFixedReels(0,0,1));
         }
 
         [TestMethod]

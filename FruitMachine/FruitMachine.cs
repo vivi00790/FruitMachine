@@ -18,7 +18,7 @@ namespace FruitMachineTest
 
             if (EqualCounter(reelResult) == 2)
             {
-                return GetBaseScore(reels[0][reelsStopAt[0]]) * 2;
+                return GetBaseScore(reels[0][reelsStopAt[0]]);
             }
             return 0;
         }
