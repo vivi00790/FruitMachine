@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+
 namespace FruitMachineTest
 {
     [TestClass]
@@ -41,4 +42,6 @@ namespace FruitMachineTest
             return new List<int>() {reelOneAt, reelTwoAt, reelThreeAt};
         }
     }
+
+    
 }
