@@ -19,8 +19,9 @@ namespace FruitMachineTest
 
             if (groupIconAndCount.Count==2)
             {
-                
-                return GetBaseScore(groupIconAndCount.First(item => item.Item2==2).Item1);
+                return groupIconAndCount.First(item => item.Item2 == 1).Item1 == "Wild"
+                    ? GetBaseScore(groupIconAndCount.First(item => item.Item2 == 2).Item1) * 2
+                    : GetBaseScore(groupIconAndCount.First(item => item.Item2 == 2).Item1);
             }
             return 0;
         }
