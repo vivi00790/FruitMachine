@@ -54,6 +54,8 @@ namespace FruitMachineTest
         {
 
             Assert.AreEqual(10,GetFruitMachineScoreWithFixedReels(0,0,1));
+            Assert.AreEqual(9,GetFruitMachineScoreWithFixedReels(1,2,1));
+            Assert.AreEqual(8,GetFruitMachineScoreWithFixedReels(3,2,2));
         }
 
         [TestMethod]
@@ -61,6 +63,8 @@ namespace FruitMachineTest
         {
 
             Assert.AreEqual(18,GetFruitMachineScoreWithFixedReels(1,1,0));
+            Assert.AreEqual(16, GetFruitMachineScoreWithFixedReels(2, 0, 2));
+            Assert.AreEqual(14, GetFruitMachineScoreWithFixedReels(0, 3, 3));
         }
 
         private int GetFruitMachineScoreWithFixedReels(int reelOneAt, int reelTwoAt, int reelThreeAt)
